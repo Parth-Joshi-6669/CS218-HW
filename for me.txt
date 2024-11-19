@@ -1,0 +1,61 @@
+#Connect to cloud
+ssh -i /Parth_Joshi_HW1/hw1.pem ec2-user@ec2-54-183-193-218.us-west-1.compute.amazonaws.com
+
+
+
+#Update packages:
+sudo yum update -y
+
+
+#Install python and pip:
+sudo yum install python3 -y
+
+
+#More pip install:
+pip3 install flask flask-limiter psutil
+
+
+#SCP: Uploads file to ec2-user 
+scp -i /Parth_Joshi_HW1/hw1.pem -r /Parth_Joshi_HW1/hw1.py ec2-user@ec2-54-183-193-218.us-west-1.compute.amazonaws.com:/home/ec2-user/:~ 
+
+
+#Run the python code. Once server is running curl and send 'abc' as 'API_KEY'
+
+
+DAEMONIZE: Not the final version! Will try again with daemontools
+
+#Create system md service file
+sudo nano /etc/systemd/system/flaskapp.service
+
+#Configure service file - use ctrl+key recommended below
+[Unit]
+Description=Flask Application Service
+After=network.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/home/ec2-user/
+ExecStart=/usr/bin/python3 /home/ec2-user/hw1.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+#Enable service
+sudo systemctl daemon-reload
+sudo systemctl enable flaskapp
+sudo systemctl start flaskapp
+
+#verify status, restart service, stop service
+sudo systemctl status flaskapp
+sudo systemctl restart flaskapp
+sudo systemctl stop flaskapp
+
+
+
+
+
+
+
+
+

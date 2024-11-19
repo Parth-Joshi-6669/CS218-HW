@@ -1,0 +1,25 @@
+2024-10-05 19:22:40,096 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.138:5000
+2024-10-05 19:22:40,097 - INFO - [33mPress CTRL+C to quit[0m
+2024-10-05 19:26:26,603 - INFO - CPU usage requested: 12.3%
+2024-10-05 19:26:26,606 - INFO - 127.0.0.1 - - [05/Oct/2024 19:26:26] "GET /cpu HTTP/1.1" 200 -
+2024-10-05 19:26:26,795 - INFO - 127.0.0.1 - - [05/Oct/2024 19:26:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-10-05 19:26:51,824 - INFO - Memory usage requested: 68.2%
+2024-10-05 19:26:51,825 - INFO - 127.0.0.1 - - [05/Oct/2024 19:26:51] "GET /memory HTTP/1.1" 200 -
+2024-10-05 19:26:58,078 - INFO - Disk usage requested: 70.5%
+2024-10-05 19:26:58,079 - INFO - 127.0.0.1 - - [05/Oct/2024 19:26:58] "GET /disk HTTP/1.1" 200 -
+2024-10-05 19:28:22,754 - INFO - 127.0.0.1 - - [05/Oct/2024 19:28:22] "[33mGET /netwok HTTP/1.1[0m" 404 -
+2024-10-05 19:28:26,923 - INFO - Network bandwidth usage requested: {'bytes_sent': 30852589, 'bytes_received': 1264940433}
+2024-10-05 19:28:26,923 - INFO - 127.0.0.1 - - [05/Oct/2024 19:28:26] "GET /network HTTP/1.1" 200 -
+2024-10-05 19:31:42,918 - INFO - Network bandwidth usage requested: {'bytes_sent': 31159322, 'bytes_received': 1265751680}
+2024-10-05 19:31:42,919 - INFO - 127.0.0.1 - - [05/Oct/2024 19:31:42] "GET /network HTTP/1.1" 200 -
+2024-10-05 19:31:49,731 - INFO - 127.0.0.1 - - [05/Oct/2024 19:31:49] "[33mGET /bandwidth HTTP/1.1[0m" 404 -
+2024-10-05 19:31:56,036 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.138:5000
+2024-10-05 19:31:56,037 - INFO - [33mPress CTRL+C to quit[0m
+2024-10-05 19:31:56,053 - INFO - Network bandwidth usage requested: {'bytes_sent': 31225063, 'bytes_received': 1265798515}
+2024-10-05 19:31:56,055 - INFO - 127.0.0.1 - - [05/Oct/2024 19:31:56] "GET /bandwidth HTTP/1.1" 200 -
