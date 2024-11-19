@@ -1,0 +1,5 @@
+pytest
+pytest -cov
+psutil
+flask
+flask_limiter
