@@ -6,26 +6,35 @@ jobs:
       - image: circleci/python:3.12
     steps:
       - checkout
-
-      # Set up Python environment
       - run:
           name: Install Dependencies
           command: |
             python -m pip install --upgrade pip
             pip install -r requirements.txt
-
-      # Run tests with coverage
       - run:
           name: Run Tests
           command: pytest --cov=hw1 --cov-report=term-missing
 
-      # Save coverage report as an artifact
-      - store_artifacts:
-          path: .coverage
-          destination: coverage-report
+  build-and-push:
+    docker:
+      - image: docker:20.10
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker Image
+          command: docker build -t $DOCKER_USERNAME/hw1-api .
+      - run:
+          name: Push Docker Image
+          command: |
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            docker push $DOCKER_USERNAME/hw1-api
 
 workflows:
   version: 2
-  test-workflow:
+  test-and-deploy:
     jobs:
       - test
+      - build-and-push:
+          requires:
+            - test
