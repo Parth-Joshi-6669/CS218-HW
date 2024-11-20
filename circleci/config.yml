@@ -23,12 +23,12 @@ jobs:
       - setup_remote_docker
       - run:
           name: Build Docker Image
-          command: docker build -t $DOCKER_USERNAME/hw1-api .
+          command: docker build -t parthj10/hw1-api .
       - run:
           name: Push Docker Image
           command: |
-            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-            docker push $DOCKER_USERNAME/hw1-api
+            echo Sonic@500 | docker login -u parthj10 --password-stdin
+            docker push parthj10/hw1-api
 
 workflows:
   version: 2
