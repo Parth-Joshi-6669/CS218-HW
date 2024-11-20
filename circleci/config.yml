@@ -13,7 +13,7 @@ jobs:
             pip install -r requirements.txt
       - run:
           name: Run Tests
-          command: pytest --cov=test_hw1 --cov-report=term-missing
+          command: pytest --cov=hw1 --cov-report=term-missing
 
   build-and-push:
     docker:
@@ -23,18 +23,24 @@ jobs:
       - setup_remote_docker
       - run:
           name: Build Docker Image
-          command: docker build -t parthj10/hw1-api .
+          command: docker build -t $DOCKER_USERNAME/hw1-api .
       - run:
           name: Push Docker Image
           command: |
-            echo Sonic@500 | docker login -u parthj10 --password-stdin
-            docker push parthj10/hw1-api
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            docker push $DOCKER_USERNAME/hw1-api
 
 workflows:
   version: 2
   test-and-deploy:
     jobs:
-      - test
+      - test:
+          filters:
+            branches:
+              only: main
       - build-and-push:
           requires:
             - test
+          filters:
+            branches:
+              only: main
