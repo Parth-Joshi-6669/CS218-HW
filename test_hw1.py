@@ -7,6 +7,7 @@ from hw1 import app
 def client():
     # Explicitly set the API_KEY for testing
     os.environ['API_KEY'] = 'test_api_key'
+    app.config['API_KEY'] = 'test_api_key'
     app.config['TESTING'] = True
     with app.test_client() as client:
         yield client
